@@ -8,9 +8,9 @@
 
 class Intern {
 private:
-    AForm* createShruberry(std::string const &target);
-    AForm* createRobotomy(std::string const &target);
-    AForm* createPresidential(std::string const &target);
+    AForm* createShrubbery(const std::string &target);
+    AForm* createRobotomy(const std::string &target);
+    AForm* createPresidential(const std::string &target);
       
 public:
     Intern();
@@ -18,10 +18,6 @@ public:
     Intern& operator=(const Intern& other);
     ~Intern();
 
-    AForm* makeForm(std::string const & formName, std::string const & target);
-
-
-
-
+    AForm* makeForm(const std::string &formName, const std::string &target);
 };
 #endif
