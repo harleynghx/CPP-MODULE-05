@@ -23,34 +23,40 @@ public:
 
     AForm(const std::string name, int gradeToSign, int gradeToExecute);
 
+    //= 0 makes it a true virtual
+    virtual void execute(const Bureaucrat &executor) const = 0;
+
     std::string getName() const;
     bool getIsSigned() const;
     int getGradeToSigned() const;
     int getGradeToExecute() const;
 
     void beSigned(const Bureaucrat &b);
-
-    //= 0 makes it a true virtual
-    virtual void execute(const Bureaucrat &executor) const = 0;
-
-    void checkRequirements(const Bureaucrat &executor) const;
+    void checkRequirements(const Bureaucrat &b) const;
 
     class GradeTooHighException : public std::exception {
     public:
-        const char* what() const throw();
+        const char* what() const throw() {
+            return "AForm grade is too high!";
+        }
     };
 
     class GradeTooLowException : public std::exception {
     public:
-        const char* what() const throw();
+        const char* what() const throw(){
+            return "AForm grade is too low!";
+        }
     };
 
     class NotSignedException : public std::exception {
     public:
-        const char* what() const throw();
+        const char* what() const throw() {
+            return "AForm is not signed!";
+        }
     };
 };
 
-std::ostream& operator<<(std::ostream& os, const AForm f);
+// stream insertion operator
+std::ostream& operator<<(std::ostream& os, const AForm &f);
 
-#endif AFORM_HPP
+#endif
