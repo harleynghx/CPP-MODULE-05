@@ -10,11 +10,11 @@ private:
    std::string const _name;
    int _grade;
 public:
-    Bureaucrat(std::string const name, int grade);
+    Bureaucrat(const std::string name, int grade);
     // OCF
     Bureaucrat();
-    Bureaucrat(const Bureaucrat& other);
-    Bureaucrat& operator=(const Bureaucrat& other);
+    Bureaucrat(const Bureaucrat &other);
+    Bureaucrat& operator=(const Bureaucrat &other);
     ~Bureaucrat();
 
     // getters
@@ -30,12 +30,12 @@ public:
     // public inheritance =  "is a" relationship ( else compiler won't know ur custom exception is part of std::exception )
     class GradeTooHighException : public std::exception {
     public:
-        virtual const char* what() const throw();
+        virtual const char* what() const throw() {return "Grade is too high! Maximum grade is 1.";}
     };
 
     class GradeTooLowException : public std::exception {
     public:
-        virtual const char* what() const throw();
+        virtual const char* what() const throw() {return "Grade is too low! Minimum grade is 150.";}
     };
 };
 // return ostream& to allow chaining ( cout << b1 << b2 << endl )
