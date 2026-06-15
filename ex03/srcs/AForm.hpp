@@ -28,7 +28,7 @@ public:
 
     std::string getName() const;
     bool getIsSigned() const;
-    int getGradeToSigned() const;
+    int getGradeToSign() const;
     int getGradeToExecute() const;
 
     void beSigned(const Bureaucrat &b);

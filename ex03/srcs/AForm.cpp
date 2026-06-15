@@ -1,4 +1,5 @@
 #include "AForm.hpp"
+#include "Bureaucrat.hpp"
 
 AForm::AForm() : _name("Default"), _isSigned(false), _gradeToSign(150), _gradeToExecute(150) {}
 
@@ -24,7 +25,7 @@ std::string AForm::getName() const {return _name ;}
 
 bool AForm::getIsSigned() const {return _isSigned;}
 
-int AForm::getGradeToSigned() const {return _gradeToSign;}
+int AForm::getGradeToSign() const {return _gradeToSign;}
 
 int AForm::getGradeToExecute() const {return _gradeToExecute;}
 
@@ -35,7 +36,17 @@ void AForm::beSigned(const Bureaucrat &b) {
 }
 
 // check _isSigned == true && grade is enough to execute
-void AForm::checkRequirements (const Bureaucrat &b) const {
-    if(_isSigned == false)
+void AForm::checkRequirements(const Bureaucrat &b) const {
+    if (!_isSigned)
         throw AForm::NotSignedException();
+    if (b.getGrade() > _gradeToExecute)
+        throw AForm::GradeTooLowException();
+}
+
+std::ostream& operator<<(std::ostream& os, const AForm& f) {
+    os << "Form: " << f.getName()
+       << " | Signed: " << (f.getIsSigned() ? "Yes" : "No")
+       << " | Grade to sign: " << f.getGradeToSign()
+       << " | Grade to execute: " << f.getGradeToExecute();
+    return os;
 }

@@ -1,4 +1,4 @@
-NAME = ex02
+NAME = ex03
 SRC_DIR = ./srcs
 OBJ_DIR = obj
 SRCS = $(SRC_DIR)/main.cpp \
@@ -6,7 +6,7 @@ SRCS = $(SRC_DIR)/main.cpp \
        $(SRC_DIR)/AForm.cpp \
        $(SRC_DIR)/ShrubberyCreationForm.cpp \
        $(SRC_DIR)/RobotomyRequestForm.cpp \
-       $(SRC_DIR)/PresidentialPardonForm.cpp
+       $(SRC_DIR)/PresidentialPardonForm.cpp \
 	   $(SRC_DIR)/Intern.cpp
 
 OBJS = $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRCS))
