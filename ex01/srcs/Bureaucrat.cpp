@@ -13,7 +13,7 @@ Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name), _grade(
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name), _grade(other._grade) {}
 
-Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat &other) {
     if (this != &other)
         _grade = other._grade;
     return *this;
@@ -36,7 +36,7 @@ void Bureaucrat::decrementGrade() {
     _grade++;
 }
 
-void Bureaucrat::signForm(Form& f) {
+void Bureaucrat::signForm(Form &f) {
     try {
         f.beSigned(*this);
         std::cout << _name << " signed " << f.getName() << std::endl;
@@ -45,7 +45,7 @@ void Bureaucrat::signForm(Form& f) {
     }
 }
 
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& b) {
+std::ostream& operator<<(std::ostream &os, const Bureaucrat& b) {
     os << b.getName() << ", bureaucrat grade " << b.getGrade() << ".";
     return os;
 }

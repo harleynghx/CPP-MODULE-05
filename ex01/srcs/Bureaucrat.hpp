@@ -17,8 +17,8 @@ class Bureaucrat {
         Bureaucrat(std::string const name, int grade);
         //OCF
         Bureaucrat();
-        Bureaucrat(const Bureaucrat& other);
-        Bureaucrat& operator=(const Bureaucrat& other);
+        Bureaucrat(const Bureaucrat &other);
+        Bureaucrat& operator=(const Bureaucrat &other);
         ~Bureaucrat();
 
         std::string getName() const;
@@ -27,7 +27,7 @@ class Bureaucrat {
         void incrementGrade();
         void decrementGrade();
         
-        void signForm(Form& f);
+        void signForm(Form &f);
 
         class GradeTooHighException : public std::exception {
         public:

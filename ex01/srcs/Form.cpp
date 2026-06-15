@@ -1,4 +1,5 @@
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
 
 // Default constructor
 Form::Form() : _name("Default"), _isSigned(false), _gradeToSign(150), _gradeToExecute(150) {}
@@ -13,12 +14,12 @@ Form::Form(std::string const name, int gradeToSign, int gradeToExecute)
 }
 
 // Copy constructor
-Form::Form(const Form& other)
+Form::Form(const Form &other)
     : _name(other._name), _isSigned(other._isSigned),
       _gradeToSign(other._gradeToSign), _gradeToExecute(other._gradeToExecute) {}
 
 // Assignment operator (only _isSigned can be copied, const members cannot)
-Form& Form::operator=(const Form& other) {
+Form& Form::operator=(const Form &other) {
     if (this != &other)
         _isSigned = other._isSigned;
     return *this;
