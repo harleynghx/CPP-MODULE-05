@@ -1,5 +1,8 @@
 #include "RobotomyRequestForm.hpp"
 
+RobotomyRequestForm::RobotomyRequestForm()
+    : AForm("RobotomyRequestForm", 72, 45), _target("default_target") {}
+
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other)
     : AForm(other), _target(other._target) {}
 
@@ -9,6 +12,10 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm &o
 }
 
 RobotomyRequestForm::~RobotomyRequestForm() {}
+
+
+RobotomyRequestForm::RobotomyRequestForm(const std::string target)
+    : AForm("RobotomyRequestForm", 72, 45), _target(target) {}
 
 void RobotomyRequestForm::execute(const Bureaucrat &b) const {
     this->checkRequirements(b);
