@@ -10,6 +10,11 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
+
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string target) 
+    : AForm("ShrubberyCreationForm", 145, 137), _target(target) {}
+
+
 void ShrubberyCreationForm::execute(const Bureaucrat &b) const {
     // Validates signature and grade requirements first
     this->checkRequirements(b);
@@ -32,4 +37,3 @@ void ShrubberyCreationForm::execute(const Bureaucrat &b) const {
     
     file.close();
 }
-

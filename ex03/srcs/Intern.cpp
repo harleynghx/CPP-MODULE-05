@@ -5,7 +5,10 @@ Intern::Intern() {}
 //Nothing to copy; (void)other to mute warnings
 Intern::Intern(const Intern &other) {(void)other;}
 
-Intern& Intern::operator=(const Intern &other) {(void) other; return *this;}
+Intern& Intern::operator=(const Intern &other) {
+    (void) other; 
+    return *this;
+}
 
 Intern::~Intern() {}
 
@@ -19,7 +22,7 @@ AForm* Intern::createRobotomy(const std::string &target) {
 }
 
 AForm* Intern::createPresidential(const std::string &target) {
-    return new PresidnetialPardonForm(target);
+    return new PresidentialPardonForm(target);
 }
 
 AForm* Intern::makeForm(const std::string &formName, const std::string &target) {
@@ -27,7 +30,7 @@ AForm* Intern::makeForm(const std::string &formName, const std::string &target) 
     std::string types[] = {
         "shrubbery creation",
         "robotomy request",
-        "presidnetial pardon"
+        "presidential pardon"
     };
 
     AForm* (Intern::*createList[])(const std::string &) = {
@@ -43,6 +46,6 @@ AForm* Intern::makeForm(const std::string &formName, const std::string &target) 
         }
     }
 
-    std::cout << "Error: Intern cannot create form '" << formName << "' because the type is unknown." << std::endl;
+    std::cerr << "Error: Intern cannot create form '" << formName << "' because the type is unknown." << std::endl;
     return NULL;
 }
