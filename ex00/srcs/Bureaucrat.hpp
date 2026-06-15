@@ -39,5 +39,6 @@ public:
     };
 };
 // return ostream& to allow chaining ( cout << b1 << b2 << endl )
+// first pair  = count << b1, 2nd pair = &os(cout) << b2
 std::ostream &operator<<(std::ostream &os, Bureaucrat const &b);
 #endif
