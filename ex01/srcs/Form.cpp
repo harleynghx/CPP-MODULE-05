@@ -42,11 +42,11 @@ void Form::beSigned(const Bureaucrat& b) {
 
 // Exception messages
 const char* Form::GradeTooHighException::what() const throw() {
-    return "Form grade is too high! Maximum grade is 1.";
+    return "Grade is too high.";
 }
 
 const char* Form::GradeTooLowException::what() const throw() {
-    return "Form grade is too low! Minimum grade is 150.";
+    return "Grade is too low.";
 }
 
 // Stream overload

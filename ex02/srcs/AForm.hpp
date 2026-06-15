@@ -19,7 +19,7 @@ public:
     AForm();
     AForm(const AForm& other);
     AForm& operator=(const AForm& other);
-    ~AForm();
+    virtual ~AForm();
 
     AForm(const std::string name, int gradeToSign, int gradeToExecute);
 
@@ -37,14 +37,14 @@ public:
     class GradeTooHighException : public std::exception {
     public:
         const char* what() const throw() {
-            return "AForm grade is too high!";
+            return "Grade is too high.";
         }
     };
 
     class GradeTooLowException : public std::exception {
     public:
         const char* what() const throw(){
-            return "AForm grade is too low!";
+            return "Grade is too low.";
         }
     };
 
