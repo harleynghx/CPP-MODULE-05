@@ -1,16 +1,22 @@
 #include "RobotomyRequestForm.hpp"
 
-class RobotomyRequestForm : public AForm {
-private:
-   const std::string _target;
-   RobotomyRequestForm();
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other)
+    : AForm(other), _target(other._target) {}
 
-public:
-    RobotomyRequestForm(const RobotomyRequestForm& other);
-    RobotomyRequestForm& operator=(const RobotomyRequestForm& other);
-    ~RobotomyRequestForm();
+RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm &other) {
+    (void)other;
+    return *this;
+}
 
-    RobotomyRequestForm(const std::string target);
+RobotomyRequestForm::~RobotomyRequestForm() {}
 
-    void execute(const Bureaucrat &b);
-};
+void RobotomyRequestForm::execute(const Bureaucrat &b) const {
+    this->checkRequirements(b);
+    
+    std::cout << "* drilling noises *" << std::endl;
+    if ((std::rand() & 1) == 0) {
+        std::cout << _target << " has been robotomized successfully!" << std::endl;
+    } else {
+        std::cout << "The robotomy of " << _target << " failed." << std::endl;
+    }
+}
