@@ -17,3 +17,7 @@ PresidentialPardonForm::~PresidentialPardonForm () {}
 PresidentialPardonForm::PresidentialPardonForm(const std::string target)
     : AForm("PresidentialPardonForm", 25, 5), _target(target) {}
 
+void PresidentialPardonForm::execute(const Bureaucrat &b) const {
+    this->checkRequirements(b);
+    std::cout << _target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+}
